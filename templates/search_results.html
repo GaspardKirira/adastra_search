@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultats de recherche</title>
+</head>
+<body>
+    <h1>Résultats de recherche</h1>
+    {% if results %}
+        <ul>
+            {% for result in results %}
+                <li>
+                    <p><strong><a href="{{ result['url'] }}">{{ result['url'] }}</a></strong></p>
+                    <p>{{ result['content'][:300] }}...</p>  <!-- Affiche un extrait du contenu -->
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun résultat trouvé.</p>
+    {% endif %}
+    <a href="/">Retour à la page d'accueil</a>
+</body>
+</html>
